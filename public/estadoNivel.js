@@ -113,13 +113,13 @@ const asd = async () => {
 asd();
 function filtro(arr) {
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > 35) {
+    if (arr[i] > 96) {
       verde = verde + 1;
     }
-    if (arr[i] <= 35 && arr[i] > 15) {
+    if (arr[i] <= 96 && arr[i] > 20) {
       amarillo = amarillo + 1;
     }
-    if (arr[i] <= 15) {
+    if (arr[i] <= 20) {
       rojo = rojo + 1;
     }
   }
