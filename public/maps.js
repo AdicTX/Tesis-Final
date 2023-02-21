@@ -219,7 +219,7 @@ const asd2 = async () => {
       var centi2 = "Vacio";
       var objetivos = document.getElementById(lugar2);
       objetivos.innerHTML = centi2;
-    } else if (dato > 20 && dato <= 956) {
+    } else if (dato > 20 && dato <= 96) {
       var centi2 = "Medio";
       var objetivos = document.getElementById(lugar2);
       objetivos.innerHTML = centi2;
