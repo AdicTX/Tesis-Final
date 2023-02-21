@@ -215,15 +215,15 @@ const asd2 = async () => {
   htm(resultadoo4.feeds[0].field5, "bas121", "bas122", "bas123");
 
   function htm(dato, lugar1, lugar2, lugar3) {
-    if (dato > 35) {
+    if (dato > 96) {
       var centi2 = "Vacio";
       var objetivos = document.getElementById(lugar2);
       objetivos.innerHTML = centi2;
-    } else if (dato > 15 && dato <= 35) {
+    } else if (dato > 21 && dato <= 95) {
       var centi2 = "Medio";
       var objetivos = document.getElementById(lugar2);
       objetivos.innerHTML = centi2;
-    } else if (dato <= 15) {
+    } else if (dato <= 20) {
       var centi2 = "Lleno";
       var objetivos = document.getElementById(lugar2);
       objetivos.innerHTML = centi2;
