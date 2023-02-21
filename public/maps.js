@@ -98,7 +98,7 @@ function iniciarMap() {
     function filtrar(dato, coo) {
       var vacio = 96;
       var lleno = 20;
-      if (dato > lleno) {
+      if (dato > vacio) {
         new google.maps.Marker({
           position: coo,
           title: "Excelente",
@@ -109,7 +109,7 @@ function iniciarMap() {
           animation: google.maps.Animation.DROP,
           map: map,
         });
-      } else if (dato > vacio && dato <= lleno) {
+      } else if (dato > lleno && dato <= vacio) {
         new google.maps.Marker({
           position: coo,
           title: "Aceptable",
