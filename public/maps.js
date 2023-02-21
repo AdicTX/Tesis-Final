@@ -219,7 +219,7 @@ const asd2 = async () => {
       var centi2 = "Vacio";
       var objetivos = document.getElementById(lugar2);
       objetivos.innerHTML = centi2;
-    } else if (dato > 21 && dato <= 95) {
+    } else if (dato > 20 && dato <= 956) {
       var centi2 = "Medio";
       var objetivos = document.getElementById(lugar2);
       objetivos.innerHTML = centi2;
@@ -234,13 +234,13 @@ const asd2 = async () => {
 asd2();
 function filtro(arr) {
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > 35) {
+    if (arr[i] > 96) {
       verde = verde + 1;
     }
-    if (arr[i] <= 35 && arr[i] > 15) {
+    if (arr[i] <= 96 && arr[i] > 20) {
       amarillo = amarillo + 1;
     }
-    if (arr[i] <= 15) {
+    if (arr[i] <= 20) {
       rojo = rojo + 1;
     }
   }
