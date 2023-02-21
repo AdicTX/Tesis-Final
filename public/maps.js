@@ -246,5 +246,4 @@ function filtro(arr) {
       rojo = rojo + 1;
     }
   }
-  // console.log(arr);
 }
