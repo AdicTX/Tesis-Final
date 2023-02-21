@@ -98,6 +98,7 @@ demo = {
 
   initChartsPages: function () {
     ////////////////////////////funcion para traer datos
+    var vacio = 20;
     const url =
       "https://api.thingspeak.com/channels/1437601/fields/1.json?api_key=DFMTPNCWK75GSWV2&results=1";
 
@@ -165,13 +166,13 @@ demo = {
 
       function filtro(arr) {
         for (let i = 0; i < arr.length; i++) {
-          if (arr[i] > 35) {
+          if (arr[i] > 96) {
             verde = verde + 1;
           }
-          if (arr[i] <= 35 && arr[i] > 15) {
+          if (arr[i] <= 96 && arr[i] > vacio) {
             amarillo = amarillo + 1;
           }
-          if (arr[i] <= 15) {
+          if (arr[i] <= vacio) {
             rojo = rojo + 1;
           }
         }
@@ -341,24 +342,14 @@ demo = {
         (date) => date.created_at >= startDate && date.created_at <= endDate
       );
 
-      let r11 = 0;
-      let r12 = 0;
-      let r13 = 0;
-      let r14 = 0;
-
-      var res1 = filtro2(resultProductData1, r11, r12, r13, r14);
+      var res1 = filtro2(resultProductData1);
 
       ////////////////////////////
       var resultProductData2 = resultadoos3.feeds.filter(
         (date) => date.created_at >= startDate && date.created_at <= endDate
       );
 
-      let r21 = 0;
-      let r22 = 0;
-      let r23 = 0;
-      let r24 = 0;
-
-      var res2 = filtro2(resultProductData2, r21, r22, r23, r24);
+      var res2 = filtro2(resultProductData2);
 
       // var res2 = filtro2(resultProductData1);
 
@@ -366,12 +357,7 @@ demo = {
         (date) => date.created_at >= startDate && date.created_at <= endDate
       );
 
-      let r31 = 0;
-      let r32 = 0;
-      let r33 = 0;
-      let r34 = 0;
-
-      var res3 = filtro2(resultProductData3, r31, r32, r33, r34);
+      var res3 = filtro2(resultProductData3);
       console.log(res3 + res1 + res2);
       var sema1 = res3 + res1 + res2;
       ////////////////////////////semana
@@ -382,35 +368,20 @@ demo = {
         (date) => date.created_at >= startDate2 && date.created_at <= endDate2
       );
 
-      let r41 = 0;
-      let r42 = 0;
-      let r43 = 0;
-      let r44 = 0;
-
-      var res4 = filtro2(resultProductData1, r41, r42, r43, r44);
+      var res4 = filtro2(resultProductData1);
 
       ////////////////////////////
       var resultProductData2 = resultadoos3.feeds.filter(
         (date) => date.created_at >= startDate && date.created_at <= endDate
       );
 
-      let r51 = 0;
-      let r52 = 0;
-      let r53 = 0;
-      let r54 = 0;
-
-      var res5 = filtro2(resultProductData2, r51, r52, r53, r54);
+      var res5 = filtro2(resultProductData2);
 
       var resultProductData3 = resultadoos4.feeds.filter(
         (date) => date.created_at >= startDate && date.created_at <= endDate
       );
 
-      let r61 = 0;
-      let r62 = 0;
-      let r63 = 0;
-      let r64 = 0;
-
-      var res6 = filtro2(resultProductData3, r61, r62, r63, r64);
+      var res6 = filtro2(resultProductData3);
       console.log(res4 + res5 + res6);
       var sema2 = res4 + res5 + res6;
       ///////////////////////////semana2
@@ -421,24 +392,14 @@ demo = {
         (date) => date.created_at >= startDate2 && date.created_at <= endDate2
       );
 
-      let r71 = 0;
-      let r72 = 0;
-      let r73 = 0;
-      let r74 = 0;
-
-      var res7 = filtro2(resultProductData1, r71, r72, r73, r74);
+      var res7 = filtro2(resultProductData1);
 
       ////////////////////////////
       var resultProductData2 = resultadoos3.feeds.filter(
         (date) => date.created_at >= startDate && date.created_at <= endDate
       );
 
-      let r81 = 0;
-      let r82 = 0;
-      let r83 = 0;
-      let r84 = 0;
-
-      var res8 = filtro2(resultProductData2, r81, r82, r83, r84);
+      var res8 = filtro2(resultProductData2);
 
       // var res2 = filtro2(resultProductData1);
 
@@ -446,12 +407,7 @@ demo = {
         (date) => date.created_at >= startDate && date.created_at <= endDate
       );
 
-      let r91 = 0;
-      let r92 = 0;
-      let r93 = 0;
-      let r94 = 0;
-
-      var res9 = filtro2(resultProductData3, r91, r92, r93, r94);
+      var res9 = filtro2(resultProductData3);
       console.log(res7 + res8 + res9);
       var sema3 = res7 + res8 + res9;
       ///////////////////////////semana3
@@ -462,35 +418,20 @@ demo = {
         (date) => date.created_at >= startDate2 && date.created_at <= endDate2
       );
 
-      let r101 = 0;
-      let r102 = 0;
-      let r103 = 0;
-      let r104 = 0;
-
-      var res10 = filtro2(resultProductData1, r101, r102, r103, r104);
+      var res10 = filtro2(resultProductData1);
 
       ////////////////////////////
       var resultProductData2 = resultadoos3.feeds.filter(
         (date) => date.created_at >= startDate && date.created_at <= endDate
       );
 
-      let r111 = 0;
-      let r112 = 0;
-      let r113 = 0;
-      let r114 = 0;
-
-      var res11 = filtro2(resultProductData2, r111, r112, r113, r114);
+      var res11 = filtro2(resultProductData2);
 
       var resultProductData3 = resultadoos4.feeds.filter(
         (date) => date.created_at >= startDate && date.created_at <= endDate
       );
 
-      let r121 = 0;
-      let r122 = 0;
-      let r123 = 0;
-      let r124 = 0;
-
-      var res12 = filtro2(resultProductData3, r121, r122, r123, r124);
+      var res12 = filtro2(resultProductData3);
       console.log(res10 + res11 + res12);
       var sema4 = res10 + res11 + res12;
       ///////////////////////////semana4
@@ -528,7 +469,7 @@ demo = {
     asd2();
     function filtro2(arr) {
       const counters = [0, 0, 0, 0];
-      const threshold = 15;
+      const threshold = 20;
 
       for (let i = 0; i < arr.length; i++) {
         if (arr[i].field1 <= threshold) {

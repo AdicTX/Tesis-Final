@@ -1,13 +1,11 @@
 function iniciarMap() {
   var coordMuni = { lat: -25.331279515148417, lng: -57.64640622667176 }; //cateura
 
-
   var coord = { lat: -25.312171015131717, lng: -57.57646764431806 }; //ventura los laureles
-  
+
   var coord2 = { lat: -25.29565287925811, lng: -57.60699727255747 }; //condominio bernardino
 
   var coord3 = { lat: -25.323781047826603, lng: -57.62615566734231 }; //julieta village
-  
 
   var coord4 = { lat: -25.324360843056613, lng: -57.630190614159694 }; //residencial san nicolas
 
@@ -98,7 +96,9 @@ function iniciarMap() {
     /////////////////////////////////////////////////////////////////////////////////
 
     function filtrar(dato, coo) {
-      if (dato > 35) {
+      var vacio = 96;
+      var lleno = 20;
+      if (dato > lleno) {
         new google.maps.Marker({
           position: coo,
           title: "Excelente",
@@ -109,7 +109,7 @@ function iniciarMap() {
           animation: google.maps.Animation.DROP,
           map: map,
         });
-      } else if (dato > 15 && dato <= 35) {
+      } else if (dato > vacio && dato <= lleno) {
         new google.maps.Marker({
           position: coo,
           title: "Aceptable",
@@ -120,7 +120,7 @@ function iniciarMap() {
           animation: google.maps.Animation.DROP,
           map: map,
         });
-      } else if (dato <= 15) {
+      } else if (dato <= vacio) {
         new google.maps.Marker({
           position: coo,
           title: "Atencion",
@@ -217,15 +217,15 @@ const asd2 = async () => {
   htm(resultadoo4.feeds[0].field5, "bas121", "bas122", "bas123");
 
   function htm(dato, lugar1, lugar2, lugar3) {
-    if (dato > 96) {
+    if (dato > vacio) {
       var centi2 = "Vacio";
       var objetivos = document.getElementById(lugar2);
       objetivos.innerHTML = centi2;
-    } else if (dato > 20 && dato <= 96) {
+    } else if (dato > lleno && dato <= vacio) {
       var centi2 = "Medio";
       var objetivos = document.getElementById(lugar2);
       objetivos.innerHTML = centi2;
-    } else if (dato <= 20) {
+    } else if (dato <= lleno) {
       var centi2 = "Lleno";
       var objetivos = document.getElementById(lugar2);
       objetivos.innerHTML = centi2;
@@ -236,13 +236,13 @@ const asd2 = async () => {
 asd2();
 function filtro(arr) {
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > 96) {
+    if (arr[i] > lleno) {
       verde = verde + 1;
     }
-    if (arr[i] <= 96 && arr[i] > 20) {
+    if (arr[i] <= lleno && arr[i] > lleno) {
       amarillo = amarillo + 1;
     }
-    if (arr[i] <= 20) {
+    if (arr[i] <= lleno) {
       rojo = rojo + 1;
     }
   }

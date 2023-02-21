@@ -11,6 +11,8 @@ const url4 =
 var verde = 0;
 var amarillo = 0;
 var rojo = 0;
+var lleno = 20;
+var vacio = 96;
 const asd = async () => {
   let peticion = await fetch(url);
   let resultadoo = await peticion.json();
@@ -79,7 +81,7 @@ const asd = async () => {
   htm(resultadoo4.feeds[0].field5, "bas121", "bas122", "bas123");
 
   function htm(dato, lugar1, lugar2, lugar3) {
-    if (dato > 96) {
+    if (dato > vacio) {
       var objetivos = document.getElementById(lugar1);
       objetivos.innerHTML = dato + " cm";
       var centi2 = "Vacio";
@@ -88,7 +90,7 @@ const asd = async () => {
       var centi3 = "Excelente";
       var objetivos = document.getElementById(lugar3);
       objetivos.innerHTML = centi3;
-    } else if (dato > 20 && dato <= 96) {
+    } else if (dato > lleno && dato <= vacio) {
       var objetivos = document.getElementById(lugar1);
       objetivos.innerHTML = dato + " cm";
       var centi2 = "Medio";
@@ -97,7 +99,7 @@ const asd = async () => {
       var centi3 = "Aceptable";
       var objetivos = document.getElementById(lugar3);
       objetivos.innerHTML = centi3;
-    } else if (dato <= 20) {
+    } else if (dato <= lleno) {
       var objetivos = document.getElementById(lugar1);
       objetivos.innerHTML = dato + " cm";
       var centi2 = "Lleno";
@@ -128,8 +130,7 @@ function filtro(arr) {
 const url21 =
   "https://api.thingspeak.com/channels/1437601/fields/2.json?api_key=DFMTPNCWK75GSWV2&results=1";
 
-const url22 =
-  "https://api.thingspeak.com/channels/1843700/feeds.json?results=1";
+const url22 = "https://api.thingspeak.com/channels/1843700/feeds.json?results=1";
 
 const url23 =
   "https://api.thingspeak.com/channels/1843703/feeds.json?api_key=IBQ4MO28Z5TSVBEU&results=1";
