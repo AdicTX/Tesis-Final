@@ -79,7 +79,7 @@ const asd = async () => {
   htm(resultadoo4.feeds[0].field5, "bas121", "bas122", "bas123");
 
   function htm(dato, lugar1, lugar2, lugar3) {
-    if (dato > 35) {
+    if (dato > 96) {
       var objetivos = document.getElementById(lugar1);
       objetivos.innerHTML = dato + " cm";
       var centi2 = "Vacio";
@@ -88,7 +88,7 @@ const asd = async () => {
       var centi3 = "Excelente";
       var objetivos = document.getElementById(lugar3);
       objetivos.innerHTML = centi3;
-    } else if (dato > 15 && dato <= 35) {
+    } else if (dato > 20 && dato <= 96) {
       var objetivos = document.getElementById(lugar1);
       objetivos.innerHTML = dato + " cm";
       var centi2 = "Medio";
@@ -97,7 +97,7 @@ const asd = async () => {
       var centi3 = "Aceptable";
       var objetivos = document.getElementById(lugar3);
       objetivos.innerHTML = centi3;
-    } else if (dato <= 15) {
+    } else if (dato <= 20) {
       var objetivos = document.getElementById(lugar1);
       objetivos.innerHTML = dato + " cm";
       var centi2 = "Lleno";
@@ -113,13 +113,13 @@ const asd = async () => {
 asd();
 function filtro(arr) {
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > 35) {
+    if (arr[i] > 96) {
       verde = verde + 1;
     }
-    if (arr[i] <= 35 && arr[i] > 15) {
+    if (arr[i] <= 96 && arr[i] > 20) {
       amarillo = amarillo + 1;
     }
-    if (arr[i] <= 15) {
+    if (arr[i] <= 20) {
       rojo = rojo + 1;
     }
   }
