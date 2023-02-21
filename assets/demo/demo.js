@@ -101,8 +101,7 @@ demo = {
     const url =
       "https://api.thingspeak.com/channels/1437601/fields/1.json?api_key=DFMTPNCWK75GSWV2&results=1";
 
-    const url2 =
-      "https://api.thingspeak.com/channels/1843700/feeds.json?results=1";
+    const url2 = "https://api.thingspeak.com/channels/1843700/feeds.json?results=1";
 
     const url3 =
       "https://api.thingspeak.com/channels/1843703/feeds.json?api_key=IBQ4MO28Z5TSVBEU&results=1";
@@ -317,8 +316,7 @@ demo = {
     // });
     ///////////////////////////////////////////////////////////////////chart1
 
-    const urls2 =
-      "https://api.thingspeak.com/channels/1843700/feeds.json?results=1096";
+    const urls2 = "https://api.thingspeak.com/channels/1843700/feeds.json?results=1096";
 
     const urls3 =
       "https://api.thingspeak.com/channels/1843703/feeds.json?api_key=IBQ4MO28Z5TSVBEU&results=1096";
@@ -528,45 +526,31 @@ demo = {
       });
     };
     asd2();
-    function filtro2(arr, c1, c2, c3, c4) {
-      let arrTemp1 = [];
-      let arrTemp2 = [];
-      let arrTemp3 = [];
-      let arrTemp4 = [];
+    function filtro2(arr) {
+      const counters = [0, 0, 0, 0];
+      const threshold = 15;
+
       for (let i = 0; i < arr.length; i++) {
-        arrTemp1.push(arr[i].field1);
-        arrTemp2.push(arr[i].field3);
-        arrTemp3.push(arr[i].field5);
-        arrTemp4.push(arr[i].field7);
-      }
-      for (let i = 0; i < arrTemp1.length; i++) {
-        if (arrTemp1[i] <= 15) {
-          c1 = c1 + 1;
+        if (arr[i].field1 <= threshold) {
+          counters[0]++;
         }
-      }
-      for (let i = 0; i < arrTemp2.length; i++) {
-        if (arrTemp2[i] <= 15) {
-          c2 = c2 + 1;
+        if (arr[i].field3 <= threshold) {
+          counters[1]++;
         }
-      }
-      for (let i = 0; i < arrTemp3.length; i++) {
-        if (arrTemp3[i] <= 15) {
-          c3 = c3 + 1;
+        if (arr[i].field5 <= threshold) {
+          counters[2]++;
         }
-      }
-      for (let i = 0; i < arrTemp4.length; i++) {
-        if (arrTemp4[i] <= 15) {
-          c4 = c4 + 1;
+        if (arr[i].field7 <= threshold) {
+          counters[3]++;
         }
       }
 
-      return c1 + c2 + c3 + c4;
+      return counters.reduce((sum, count) => sum + count, 0);
     }
     ///////////////////////////////////////////////////////////////////chart1
     ///////////////////////////////////////////////////////////////////chart2
     ///////////////////////////////////meses
-    const urlmes2 =
-      "https://api.thingspeak.com/channels/1843700/feeds.json?results=1096";
+    const urlmes2 = "https://api.thingspeak.com/channels/1843700/feeds.json?results=1096";
 
     const urlmes3 =
       "https://api.thingspeak.com/channels/1843703/feeds.json?api_key=IBQ4MO28Z5TSVBEU&results=1096";
@@ -591,24 +575,14 @@ demo = {
         (date) => date.created_at > startDateMes && date.created_at < endDateMes
       );
 
-      let m11 = 0;
-      let m12 = 0;
-      let m13 = 0;
-      let m14 = 0;
-
-      var bas1 = filtro2(resultMes1, m11, m12, m13, m14);
+      var bas1 = filtro2(resultMes1);
 
       ////////////////////////////
       var resultMes2 = resultadooMes3.feeds.filter(
         (date) => date.created_at > startDateMes && date.created_at < endDateMes
       );
 
-      let m21 = 0;
-      let m22 = 0;
-      let m23 = 0;
-      let m24 = 0;
-
-      var bas2 = filtro2(resultMes2, m21, m22, m23, m24);
+      var bas2 = filtro2(resultMes2);
 
       // var mes2 = filtro2(resultMes1);
 
@@ -616,12 +590,7 @@ demo = {
         (date) => date.created_at > startDateMes && date.created_at < endDateMes
       );
 
-      let m31 = 0;
-      let m32 = 0;
-      let m33 = 0;
-      let m34 = 0;
-
-      var bas3 = filtro2(resultMes3, m31, m32, m33, m34);
+      var bas3 = filtro2(resultMes3);
 
       var mes1 = bas1 + bas2 + bas3;
       console.log(mes1 + "asd1");
@@ -631,41 +600,23 @@ demo = {
       var startDateMes2 = "2021-02-01";
       var endDateMes2 = "2021-02-28";
       var resultMes1 = resultadooMes2.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes2 && date.created_at < endDateMes2
+        (date) => date.created_at > startDateMes2 && date.created_at < endDateMes2
       );
 
-      let m41 = 0;
-      let m42 = 0;
-      let m43 = 0;
-      let m44 = 0;
-
-      var bas4 = filtro2(resultMes1, m41, m42, m43, m44);
+      var bas4 = filtro2(resultMes1);
 
       ////////////////////////////
       var resultMes2 = resultadooMes3.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes2 && date.created_at < endDateMes2
+        (date) => date.created_at > startDateMes2 && date.created_at < endDateMes2
       );
 
-      let m51 = 0;
-      let m52 = 0;
-      let m53 = 0;
-      let m54 = 0;
-
-      var bas5 = filtro2(resultMes2, m51, m52, m53, m54);
+      var bas5 = filtro2(resultMes2);
 
       var resultMes3 = resultadooMes4.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes2 && date.created_at < endDateMes2
+        (date) => date.created_at > startDateMes2 && date.created_at < endDateMes2
       );
 
-      let m61 = 0;
-      let m62 = 0;
-      let m63 = 0;
-      let m64 = 0;
-
-      var bas6 = filtro2(resultMes3, m61, m62, m63, m64);
+      var bas6 = filtro2(resultMes3);
 
       var mes2 = bas4 + bas5 + bas6;
       console.log(mes2 + "asd2");
@@ -675,43 +626,25 @@ demo = {
       var startDateMes3 = "2021-03-01";
       var endDateMes3 = "2021-03-31";
       var resultMes1 = resultadooMes2.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes3 && date.created_at < endDateMes3
+        (date) => date.created_at > startDateMes3 && date.created_at < endDateMes3
       );
 
-      let m71 = 0;
-      let m72 = 0;
-      let m73 = 0;
-      let m74 = 0;
-
-      var bas7 = filtro2(resultMes1, m71, m72, m73, m74);
+      var bas7 = filtro2(resultMes1);
 
       ////////////////////////////
       var resultMes2 = resultadooMes3.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes3 && date.created_at < endDateMes3
+        (date) => date.created_at > startDateMes3 && date.created_at < endDateMes3
       );
 
-      let m81 = 0;
-      let m82 = 0;
-      let m83 = 0;
-      let m84 = 0;
-
-      var bas8 = filtro2(resultMes2, m81, m82, m83, m84);
+      var bas8 = filtro2(resultMes2);
 
       // var mes2 = filtro2(resultMes1);
 
       var resultMes3 = resultadooMes4.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes3 && date.created_at < endDateMes3
+        (date) => date.created_at > startDateMes3 && date.created_at < endDateMes3
       );
 
-      let m91 = 0;
-      let m92 = 0;
-      let m93 = 0;
-      let m94 = 0;
-
-      var bas9 = filtro2(resultMes3, m91, m92, m93, m94);
+      var bas9 = filtro2(resultMes3);
 
       var mes3 = bas7 + bas8 + bas9;
       console.log(mes3 + "asd3");
@@ -721,41 +654,23 @@ demo = {
       var startDateMes4 = "2021-04-01";
       var endDateMes4 = "2021-04-30";
       var resultMes1 = resultadooMes2.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes4 && date.created_at < endDateMes4
+        (date) => date.created_at > startDateMes4 && date.created_at < endDateMes4
       );
 
-      let m101 = 0;
-      let m102 = 0;
-      let m103 = 0;
-      let m104 = 0;
-
-      var bas10 = filtro2(resultMes1, m101, m102, m103, m104);
+      var bas10 = filtro2(resultMes1);
 
       ////////////////////////////
       var resultMes2 = resultadooMes3.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes4 && date.created_at < endDateMes4
+        (date) => date.created_at > startDateMes4 && date.created_at < endDateMes4
       );
 
-      let m111 = 0;
-      let m112 = 0;
-      let m113 = 0;
-      let m114 = 0;
-
-      var bas11 = filtro2(resultMes2, m111, m112, m113, m114);
+      var bas11 = filtro2(resultMes2);
 
       var resultMes3 = resultadooMes4.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes4 && date.created_at < endDateMes4
+        (date) => date.created_at > startDateMes4 && date.created_at < endDateMes4
       );
 
-      let m121 = 0;
-      let m122 = 0;
-      let m123 = 0;
-      let m124 = 0;
-
-      var bas12 = filtro2(resultMes3, m121, m122, m123, m124);
+      var bas12 = filtro2(resultMes3);
 
       var mes4 = bas10 + bas11 + bas12;
       console.log(mes4 + "asd4");
@@ -765,41 +680,23 @@ demo = {
       var startDateMes5 = "2021-05-01";
       var endDateMes5 = "2021-05-31";
       var resultMes1 = resultadooMes2.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes5 && date.created_at < endDateMes5
+        (date) => date.created_at > startDateMes5 && date.created_at < endDateMes5
       );
 
-      let m131 = 0;
-      let m132 = 0;
-      let m133 = 0;
-      let m134 = 0;
-
-      var bas13 = filtro2(resultMes1, m131, m132, m133, m134);
+      var bas13 = filtro2(resultMes1);
 
       ////////////////////////////
       var resultMes2 = resultadooMes3.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes5 && date.created_at < endDateMes5
+        (date) => date.created_at > startDateMes5 && date.created_at < endDateMes5
       );
 
-      let m141 = 0;
-      let m142 = 0;
-      let m143 = 0;
-      let m144 = 0;
-
-      var bas14 = filtro2(resultMes2, m141, m142, m143, m144);
+      var bas14 = filtro2(resultMes2);
 
       var resultMes3 = resultadooMes4.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes5 && date.created_at < endDateMes5
+        (date) => date.created_at > startDateMes5 && date.created_at < endDateMes5
       );
 
-      let m151 = 0;
-      let m152 = 0;
-      let m153 = 0;
-      let m154 = 0;
-
-      var bas15 = filtro2(resultMes3, m151, m152, m153, m154);
+      var bas15 = filtro2(resultMes3);
 
       var mes5 = bas13 + bas14 + bas15;
       console.log(mes5 + "asd5");
@@ -809,41 +706,23 @@ demo = {
       var startDateMes6 = "2021-06-01";
       var endDateMes6 = "2021-06-30";
       var resultMes1 = resultadooMes2.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes6 && date.created_at < endDateMes6
+        (date) => date.created_at > startDateMes6 && date.created_at < endDateMes6
       );
 
-      let m161 = 0;
-      let m162 = 0;
-      let m163 = 0;
-      let m164 = 0;
-
-      var bas16 = filtro2(resultMes1, m161, m162, m163, m164);
+      var bas16 = filtro2(resultMes1);
 
       ////////////////////////////
       var resultMes2 = resultadooMes3.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes6 && date.created_at < endDateMes6
+        (date) => date.created_at > startDateMes6 && date.created_at < endDateMes6
       );
 
-      let m171 = 0;
-      let m172 = 0;
-      let m173 = 0;
-      let m174 = 0;
-
-      var bas17 = filtro2(resultMes2, m171, m172, m173, m174);
+      var bas17 = filtro2(resultMes2);
 
       var resultMes3 = resultadooMes4.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes6 && date.created_at < endDateMes6
+        (date) => date.created_at > startDateMes6 && date.created_at < endDateMes6
       );
 
-      let m181 = 0;
-      let m182 = 0;
-      let m183 = 0;
-      let m184 = 0;
-
-      var bas18 = filtro2(resultMes3, m181, m182, m183, m184);
+      var bas18 = filtro2(resultMes3);
 
       var mes6 = bas16 + bas17 + bas18;
       console.log(mes6 + "asd6");
@@ -853,41 +732,23 @@ demo = {
       var startDateMes7 = "2021-07-01";
       var endDateMes7 = "2021-07-31";
       var resultMes1 = resultadooMes2.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m191 = 0;
-      let m192 = 0;
-      let m193 = 0;
-      let m194 = 0;
-
-      var bas19 = filtro2(resultMes1, m191, m192, m193, m194);
+      var bas19 = filtro2(resultMes1);
 
       ////////////////////////////
       var resultMes2 = resultadooMes3.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m201 = 0;
-      let m202 = 0;
-      let m203 = 0;
-      let m204 = 0;
-
-      var bas20 = filtro2(resultMes2, m201, m202, m203, m204);
+      var bas20 = filtro2(resultMes2);
 
       var resultMes3 = resultadooMes4.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m211 = 0;
-      let m212 = 0;
-      let m213 = 0;
-      let m214 = 0;
-
-      var bas21 = filtro2(resultMes3, m211, m212, m213, m214);
+      var bas21 = filtro2(resultMes3);
 
       var mes7 = bas19 + bas20 + bas21;
       console.log(mes7 + "8");
@@ -896,41 +757,23 @@ demo = {
       var startDateMes7 = "2021-08-01";
       var endDateMes7 = "2021-08-31";
       var resultMes1 = resultadooMes2.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m221 = 0;
-      let m222 = 0;
-      let m223 = 0;
-      let m224 = 0;
-
-      var bas22 = filtro2(resultMes1, m221, m222, m223, m224);
+      var bas22 = filtro2(resultMes1);
 
       ////////////////////////////
       var resultMes2 = resultadooMes3.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m231 = 0;
-      let m232 = 0;
-      let m233 = 0;
-      let m234 = 0;
-
-      var bas23 = filtro2(resultMes2, m231, m232, m233, m234);
+      var bas23 = filtro2(resultMes2);
 
       var resultMes3 = resultadooMes4.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m391 = 0;
-      let m392 = 0;
-      let m393 = 0;
-      let m394 = 0;
-
-      var bas39 = filtro2(resultMes3, m391, m392, m393, m394);
+      var bas39 = filtro2(resultMes3);
 
       var mes8 = bas22 + bas23 + bas39;
       console.log(mes8 + "9");
@@ -939,41 +782,23 @@ demo = {
       var startDateMes7 = "2021-09-01";
       var endDateMes7 = "2021-09-30";
       var resultMes1 = resultadooMes2.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m241 = 0;
-      let m242 = 0;
-      let m243 = 0;
-      let m244 = 0;
-
-      var bas24 = filtro2(resultMes1, m241, m242, m243, m244);
+      var bas24 = filtro2(resultMes1);
 
       ////////////////////////////
       var resultMes2 = resultadooMes3.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m401 = 0;
-      let m402 = 0;
-      let m403 = 0;
-      let m404 = 0;
-
-      var bas40 = filtro2(resultMes2, m401, m402, m403, m404);
+      var bas40 = filtro2(resultMes2);
 
       var resultMes3 = resultadooMes4.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m251 = 0;
-      let m252 = 0;
-      let m253 = 0;
-      let m254 = 0;
-
-      var bas25 = filtro2(resultMes3, m251, m252, m253, m254);
+      var bas25 = filtro2(resultMes3);
 
       var mes9 = bas24 + bas40 + bas25;
       console.log(mes9 + "10");
@@ -982,41 +807,23 @@ demo = {
       var startDateMes7 = "2021-10-01";
       var endDateMes7 = "2021-10-31";
       var resultMes1 = resultadooMes2.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m261 = 0;
-      let m262 = 0;
-      let m263 = 0;
-      let m264 = 0;
-
-      var bas26 = filtro2(resultMes1, m261, m262, m263, m264);
+      var bas26 = filtro2(resultMes1);
 
       ////////////////////////////
       var resultMes2 = resultadooMes3.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m271 = 0;
-      let m272 = 0;
-      let m273 = 0;
-      let m274 = 0;
-
-      var bas27 = filtro2(resultMes2, m271, m272, m273, m274);
+      var bas27 = filtro2(resultMes2);
 
       var resultMes3 = resultadooMes4.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m281 = 0;
-      let m282 = 0;
-      let m283 = 0;
-      let m284 = 0;
-
-      var bas28 = filtro2(resultMes3, m281, m282, m283, m284);
+      var bas28 = filtro2(resultMes3);
 
       var mes10 = bas26 + bas27 + bas28;
       console.log(mes10 + "11");
@@ -1025,41 +832,23 @@ demo = {
       var startDateMes7 = "2021-11-01";
       var endDateMes7 = "2021-11-30";
       var resultMes1 = resultadooMes2.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m291 = 0;
-      let m292 = 0;
-      let m293 = 0;
-      let m294 = 0;
-
-      var bas29 = filtro2(resultMes1, m291, m292, m293, m294);
+      var bas29 = filtro2(resultMes1);
 
       ////////////////////////////
       var resultMes2 = resultadooMes3.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m301 = 0;
-      let m302 = 0;
-      let m303 = 0;
-      let m304 = 0;
-
-      var bas30 = filtro2(resultMes2, m301, m302, m303, m304);
+      var bas30 = filtro2(resultMes2);
 
       var resultMes3 = resultadooMes4.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m311 = 0;
-      let m312 = 0;
-      let m313 = 0;
-      let m314 = 0;
-
-      var bas31 = filtro2(resultMes3, m311, m312, m313, m314);
+      var bas31 = filtro2(resultMes3);
 
       var mes11 = bas29 + bas30 + bas31;
       console.log(mes11 + "12");
@@ -1068,41 +857,23 @@ demo = {
       var startDateMes7 = "2021-12-01";
       var endDateMes7 = "2021-12-31";
       var resultMes1 = resultadooMes2.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m321 = 0;
-      let m322 = 0;
-      let m323 = 0;
-      let m324 = 0;
-
-      var bas32 = filtro2(resultMes1, m321, m322, m323, m324);
+      var bas32 = filtro2(resultMes1);
 
       ////////////////////////////
       var resultMes2 = resultadooMes3.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m341 = 0;
-      let m342 = 0;
-      let m343 = 0;
-      let m344 = 0;
-
-      var bas34 = filtro2(resultMes2, m341, m342, m343, m344);
+      var bas34 = filtro2(resultMes2);
 
       var resultMes3 = resultadooMes4.feeds.filter(
-        (date) =>
-          date.created_at > startDateMes7 && date.created_at < endDateMes7
+        (date) => date.created_at > startDateMes7 && date.created_at < endDateMes7
       );
 
-      let m351 = 0;
-      let m352 = 0;
-      let m353 = 0;
-      let m354 = 0;
-
-      var bas35 = filtro2(resultMes3, m351, m352, m353, m354);
+      var bas35 = filtro2(resultMes3);
 
       var mes12 = bas32 + bas34 + bas35;
       console.log(mes12 + "13");
@@ -1113,20 +884,7 @@ demo = {
       var speedCanvas = document.getElementById("speedChart2");
 
       var dataFirst2 = {
-        data: [
-          mes1,
-          mes2,
-          mes3,
-          mes4,
-          mes5,
-          mes6,
-          mes7,
-          mes8,
-          mes9,
-          mes10,
-          mes11,
-          mes12,
-        ],
+        data: [mes1, mes2, mes3, mes4, mes5, mes6, mes7, mes8, mes9, mes10, mes11, mes12],
         fill: false,
         borderColor: "#F03F3F",
         backgroundColor: "transparent",
@@ -1173,8 +931,7 @@ demo = {
     //////////////////////ANHO
     //////////////////////////SEMANA
     ///////////////////////////////////DIAS
-    const urlDia2 =
-      "https://api.thingspeak.com/channels/1843700/feeds.json?results=1096";
+    const urlDia2 = "https://api.thingspeak.com/channels/1843700/feeds.json?results=1096";
 
     const urlDia3 =
       "https://api.thingspeak.com/channels/1843703/feeds.json?api_key=IBQ4MO28Z5TSVBEU&results=1096";
@@ -1199,24 +956,14 @@ demo = {
         (date) => date.created_at > startDateDia && date.created_at < endDateDia
       );
 
-      let d11 = 0;
-      let d12 = 0;
-      let d13 = 0;
-      let d14 = 0;
-
-      var b1 = filtro2(result1, d11, d12, d13, d14);
+      var b1 = filtro2(result1);
 
       ////////////////////////////
       var result2 = resultadooDia3.feeds.filter(
         (date) => date.created_at > startDateDia && date.created_at < endDateDia
       );
 
-      let d21 = 0;
-      let d22 = 0;
-      let d23 = 0;
-      let d24 = 0;
-
-      var b2 = filtro2(result2, d21, d22, d23, d24);
+      var b2 = filtro2(result2);
 
       // var dia2 = filtro2(result1);
 
@@ -1224,12 +971,7 @@ demo = {
         (date) => date.created_at > startDateDia && date.created_at < endDateDia
       );
 
-      let d31 = 0;
-      let d32 = 0;
-      let d33 = 0;
-      let d34 = 0;
-
-      var b3 = filtro2(result3, d31, d32, d33, d34);
+      var b3 = filtro2(result3);
 
       var dia1 = b1 + b2 + b3;
 
@@ -1239,41 +981,23 @@ demo = {
       var startDateDia2 = "2021-08-24";
       var endDateDia2 = "2021-08-25";
       var result1 = resultadooDia2.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia2 && date.created_at < endDateDia2
+        (date) => date.created_at > startDateDia2 && date.created_at < endDateDia2
       );
 
-      let d41 = 0;
-      let d42 = 0;
-      let d43 = 0;
-      let d44 = 0;
-
-      var b4 = filtro2(result1, d41, d42, d43, d44);
+      var b4 = filtro2(result1);
 
       ////////////////////////////
       var result2 = resultadooDia3.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia2 && date.created_at < endDateDia2
+        (date) => date.created_at > startDateDia2 && date.created_at < endDateDia2
       );
 
-      let d51 = 0;
-      let d52 = 0;
-      let d53 = 0;
-      let d54 = 0;
-
-      var b5 = filtro2(result2, d51, d52, d53, d54);
+      var b5 = filtro2(result2);
 
       var result3 = resultadooDia4.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia2 && date.created_at < endDateDia2
+        (date) => date.created_at > startDateDia2 && date.created_at < endDateDia2
       );
 
-      let d61 = 0;
-      let d62 = 0;
-      let d63 = 0;
-      let d64 = 0;
-
-      var b6 = filtro2(result3, d61, d62, d63, d64);
+      var b6 = filtro2(result3);
 
       var dia2 = b4 + b5 + b6;
 
@@ -1283,43 +1007,25 @@ demo = {
       var startDateDia3 = "2021-08-25";
       var endDateDia3 = "2021-08-26";
       var result1 = resultadooDia2.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia3 && date.created_at < endDateDia3
+        (date) => date.created_at > startDateDia3 && date.created_at < endDateDia3
       );
 
-      let d71 = 0;
-      let d72 = 0;
-      let d73 = 0;
-      let d74 = 0;
-
-      var b7 = filtro2(result1, d71, d72, d73, d74);
+      var b7 = filtro2(result1);
 
       ////////////////////////////
       var result2 = resultadooDia3.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia3 && date.created_at < endDateDia3
+        (date) => date.created_at > startDateDia3 && date.created_at < endDateDia3
       );
 
-      let d81 = 0;
-      let d82 = 0;
-      let d83 = 0;
-      let d84 = 0;
-
-      var b8 = filtro2(result2, d81, d82, d83, d84);
+      var b8 = filtro2(result2);
 
       // var dia2 = filtro2(result1);
 
       var result3 = resultadooDia4.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia3 && date.created_at < endDateDia3
+        (date) => date.created_at > startDateDia3 && date.created_at < endDateDia3
       );
 
-      let d91 = 0;
-      let d92 = 0;
-      let d93 = 0;
-      let d94 = 0;
-
-      var b9 = filtro2(result3, d91, d92, d93, d94);
+      var b9 = filtro2(result3);
 
       var dia3 = b7 + b8 + b9;
 
@@ -1329,41 +1035,23 @@ demo = {
       var startDateDia4 = "2021-08-26";
       var endDateDia4 = "2021-08-27";
       var result1 = resultadooDia2.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia4 && date.created_at < endDateDia4
+        (date) => date.created_at > startDateDia4 && date.created_at < endDateDia4
       );
 
-      let d101 = 0;
-      let d102 = 0;
-      let d103 = 0;
-      let d104 = 0;
-
-      var b10 = filtro2(result1, d101, d102, d103, d104);
+      var b10 = filtro2(result1);
 
       ////////////////////////////
       var result2 = resultadooDia3.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia4 && date.created_at < endDateDia4
+        (date) => date.created_at > startDateDia4 && date.created_at < endDateDia4
       );
 
-      let d111 = 0;
-      let d112 = 0;
-      let d113 = 0;
-      let d114 = 0;
-
-      var b11 = filtro2(result2, d111, d112, d113, d114);
+      var b11 = filtro2(result2);
 
       var result3 = resultadooDia4.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia4 && date.created_at < endDateDia4
+        (date) => date.created_at > startDateDia4 && date.created_at < endDateDia4
       );
 
-      let d121 = 0;
-      let d122 = 0;
-      let d123 = 0;
-      let d124 = 0;
-
-      var b12 = filtro2(result3, d121, d122, d123, d124);
+      var b12 = filtro2(result3);
 
       var dia4 = b10 + b11 + b12;
 
@@ -1373,41 +1061,23 @@ demo = {
       var startDateDia5 = "2021-08-27";
       var endDateDia5 = "2021-08-28";
       var result1 = resultadooDia2.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia5 && date.created_at < endDateDia5
+        (date) => date.created_at > startDateDia5 && date.created_at < endDateDia5
       );
 
-      let d131 = 0;
-      let d132 = 0;
-      let d133 = 0;
-      let d134 = 0;
-
-      var b13 = filtro2(result1, d131, d132, d133, d134);
+      var b13 = filtro2(result1);
 
       ////////////////////////////
       var result2 = resultadooDia3.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia5 && date.created_at < endDateDia5
+        (date) => date.created_at > startDateDia5 && date.created_at < endDateDia5
       );
 
-      let d141 = 0;
-      let d142 = 0;
-      let d143 = 0;
-      let d144 = 0;
-
-      var b14 = filtro2(result2, d141, d142, d143, d144);
+      var b14 = filtro2(result2);
 
       var result3 = resultadooDia4.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia5 && date.created_at < endDateDia5
+        (date) => date.created_at > startDateDia5 && date.created_at < endDateDia5
       );
 
-      let d151 = 0;
-      let d152 = 0;
-      let d153 = 0;
-      let d154 = 0;
-
-      var b15 = filtro2(result3, d151, d152, d153, d154);
+      var b15 = filtro2(result3);
 
       var dia5 = b13 + b14 + b15;
 
@@ -1416,41 +1086,23 @@ demo = {
       var startDateDia6 = "2021-08-28";
       var endDateDia6 = "2021-08-29";
       var result1 = resultadooDia2.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia6 && date.created_at < endDateDia6
+        (date) => date.created_at > startDateDia6 && date.created_at < endDateDia6
       );
 
-      let d161 = 0;
-      let d162 = 0;
-      let d163 = 0;
-      let d164 = 0;
-
-      var b16 = filtro2(result1, d161, d162, d163, d164);
+      var b16 = filtro2(result1);
 
       ////////////////////////////
       var result2 = resultadooDia3.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia6 && date.created_at < endDateDia6
+        (date) => date.created_at > startDateDia6 && date.created_at < endDateDia6
       );
 
-      let d171 = 0;
-      let d172 = 0;
-      let d173 = 0;
-      let d174 = 0;
-
-      var b17 = filtro2(result2, d171, d172, d173, d174);
+      var b17 = filtro2(result2);
 
       var result3 = resultadooDia4.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia6 && date.created_at < endDateDia6
+        (date) => date.created_at > startDateDia6 && date.created_at < endDateDia6
       );
 
-      let d181 = 0;
-      let d182 = 0;
-      let d183 = 0;
-      let d184 = 0;
-
-      var b18 = filtro2(result3, d181, d182, d183, d184);
+      var b18 = filtro2(result3);
 
       var dia6 = b16 + b17 + b18;
 
@@ -1460,41 +1112,23 @@ demo = {
       var startDateDia7 = "2021-08-29";
       var endDateDia7 = "2021-08-30";
       var result1 = resultadooDia2.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia7 && date.created_at < endDateDia7
+        (date) => date.created_at > startDateDia7 && date.created_at < endDateDia7
       );
 
-      let d191 = 0;
-      let d192 = 0;
-      let d193 = 0;
-      let d194 = 0;
-
-      var b19 = filtro2(result1, d191, d192, d193, d194);
+      var b19 = filtro2(result1);
 
       ////////////////////////////
       var result2 = resultadooDia3.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia7 && date.created_at < endDateDia7
+        (date) => date.created_at > startDateDia7 && date.created_at < endDateDia7
       );
 
-      let d201 = 0;
-      let d202 = 0;
-      let d203 = 0;
-      let d204 = 0;
-
-      var b20 = filtro2(result2, d201, d202, d203, d204);
+      var b20 = filtro2(result2);
 
       var result3 = resultadooDia4.feeds.filter(
-        (date) =>
-          date.created_at > startDateDia7 && date.created_at < endDateDia7
+        (date) => date.created_at > startDateDia7 && date.created_at < endDateDia7
       );
 
-      let d211 = 0;
-      let d212 = 0;
-      let d213 = 0;
-      let d214 = 0;
-
-      var b21 = filtro2(result3, d211, d212, d213, d214);
+      var b21 = filtro2(result3);
 
       var dia7 = b19 + b20 + b21;
 
