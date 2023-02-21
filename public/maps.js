@@ -1,11 +1,11 @@
 function iniciarMap() {
   var coordMuni = { lat: -25.331279515148417, lng: -57.64640622667176 }; //cateura
 
-  var coord = { lat: -25.246459183360766, lng: -57.53530063240058 }; //magnolias village
-
+  var coord = { lat: -25.312171015131717, lng: -57.57646764431806 }; //ventura los laureles
+  
   var coord2 = { lat: -25.29565287925811, lng: -57.60699727255747 }; //condominio bernardino
 
-  var coord3 = { lat: -25.312145528664814, lng: -57.57646989977785 }; //ventura los laureles
+  var coord3 = { lat: -25.323781047826603, lng: -57.62615566734231 }; //julieta village
   
   var coord4 = { lat: -25.324360843056613, lng: -57.630190614159694 }; //residencial san nicolas
 
