@@ -217,15 +217,15 @@ const asd2 = async () => {
   htm(resultadoo4.feeds[0].field5, "bas121", "bas122", "bas123");
 
   function htm(dato, lugar1, lugar2, lugar3) {
-    if (dato > vacio) {
+    if (dato > 96) {
       var centi2 = "Vacio";
       var objetivos = document.getElementById(lugar2);
       objetivos.innerHTML = centi2;
-    } else if (dato > lleno && dato <= vacio) {
+    } else if (dato > 20 && dato <= 96) {
       var centi2 = "Medio";
       var objetivos = document.getElementById(lugar2);
       objetivos.innerHTML = centi2;
-    } else if (dato <= lleno) {
+    } else if (dato <= 20) {
       var centi2 = "Lleno";
       var objetivos = document.getElementById(lugar2);
       objetivos.innerHTML = centi2;
@@ -236,13 +236,13 @@ const asd2 = async () => {
 asd2();
 function filtro(arr) {
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > lleno) {
+    if (arr[i] > 20) {
       verde = verde + 1;
     }
-    if (arr[i] <= lleno && arr[i] > lleno) {
+    if (arr[i] <= 20 && arr[i] > 20) {
       amarillo = amarillo + 1;
     }
-    if (arr[i] <= lleno) {
+    if (arr[i] <= 20) {
       rojo = rojo + 1;
     }
   }

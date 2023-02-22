@@ -49,12 +49,7 @@ const asd = async () => {
 
   let peticion4 = await fetch(url4);
   let resultadoo4 = await peticion4.json();
-  let arr4 = [
-    resultadoo4.feeds[0].field1,
-    resultadoo4.feeds[0].field3,
-    resultadoo4.feeds[0].field5,
-    resultadoo4.feeds[0].field7,
-  ];
+  let arr4 = [resultadoo4.feeds[0].field1, resultadoo4.feeds[0].field3];
 
   filtro(arr4);
 
@@ -78,7 +73,7 @@ const asd = async () => {
   htm(resultadoo3.feeds[0].field7, "bas91", "bas92", "bas93");
   htm(resultadoo4.feeds[0].field1, "bas101", "bas102", "bas103");
   htm(resultadoo4.feeds[0].field3, "bas111", "bas112", "bas113");
-  htm(resultadoo4.feeds[0].field5, "bas121", "bas122", "bas123");
+  // htm(resultadoo4.feeds[0].field5, "bas121", "bas122", "bas123");
 
   function htm(dato, lugar1, lugar2, lugar3) {
     if (dato > vacio) {

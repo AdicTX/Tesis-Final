@@ -148,12 +148,7 @@ demo = {
 
       let peticion4 = await fetch(url4);
       let resultadoo4 = await peticion4.json();
-      let arr4 = [
-        resultadoo4.feeds[0].field1,
-        resultadoo4.feeds[0].field3,
-        resultadoo4.feeds[0].field5,
-        resultadoo4.feeds[0].field7,
-      ];
+      let arr4 = [resultadoo4.feeds[0].field1, resultadoo4.feeds[0].field3];
 
       filtro(arr4);
 
