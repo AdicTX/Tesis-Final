@@ -1,108 +1,37 @@
-# [Paper Dashboard 2](https://demos.creative-tim.com/paper-dashboard/examples/dashboard.html) [![version][version-badge]][CHANGELOG] [![license][license-badge]][LICENSE]
+# **Sistema de Monitoreo de Residuos Sólidos**
 
-![alt text](https://s3.amazonaws.com/creativetim_bucket/products/86/original/opt_pd2_thumbnail.jpg)
+![Captura de pantalla 2023-03-14 204437](https://user-images.githubusercontent.com/100539173/225167855-1b3aaa1c-7336-4945-b4a4-ab50e17c58ba.jpg)
 
-If you are a developer or a website owner that needs to work within a dashboard and want to have a pretty sight while doing so, **[Paper Dashboard 2](https://creative-tim.com/live/paper-dashboard-2)** is for you. Paper Dashboard is a Bootstrap Admin Panel which combines soft colours with beautiful typography and spacious cards and graphics. It is a powerful tool, but it is light and easy to use. It has enough features to allow you to get the job done, but it is not crowded to the point where you can't find the files for a specific plugin.
+Este es un sistema de monitoreo de residuos sólidos que utiliza Bootstrap, HTML, CSS, JavaScript y la API de Google Maps. Este sistema le permite a los usuarios ver y monitorear la ubicación y el estado de los contenedores de residuos sólidos.
 
-We like consistency and design that blends into its purpose. Paper Dashboard is a perfect example of our most thoughtful work. It combines over a dozen components and plugins, while looking like everything fits together. For an easy start or inspiration for you project, we have also create a set of example pages, like the user settings or usage graphics.
+## **Funcionalidades**
 
-Paper Dashboard is built using the same design language as **[Paper Kit](https://www.creative-tim.com/product/paper-kit-2)**. You can easily use them together, or pick between them depending on the project you have.
+- Mapa interactivo que muestra la ubicación de los puntos de recolección de residuos sólidos en una zona determinada.
+- La capacidad de filtrar y buscar puntos de recolección de residuos sólidos por ubicación, y estado (vacío, lleno, en proceso de recolección).
+- La capacidad de ver detalles específicos de cada punto de recolección, como su ubicación exacta y el estado actual.
+- La integración de la API de Google Maps para proporcionar una experiencia de usuario mejorada y una navegación fácil.
 
-**Bootstrap 4 Support**
-Paper Dashboard 2 is built on top of the much awaited Bootstrap 4. This makes starting a new project very simple. It also provides benefits if you are already working on a Bootstrap 4 project; you can just import the Paper Dashboard style over it. Most of the elements have been redesigned; but if you are using an element we have not touched, it will fall back to the Bootstrap default.
+## **Tecnologías utilizadas**
 
-**Example Pages**
-We wanted to fully display the power of this dashboard, so the kit comes packed with examples showing you how to use the components. Inside the product you will find:
+- HTML
+- CSS
+- JavaScript
+- Bootstrap
+- API de Google Maps
 
-## Links:
+## **Cómo ejecutar el sistema**
 
-+ [Live Preview](https://demos.creative-tim.com/paper-dashboard/examples/dashboard.html)
-+ [Paper Dashboard 2 PRO](https://www.creative-tim.com/product/paper-dashboard-2-pro) (from $39)
+1. Descargue o clone este repositorio en su computadora local.
+2. Abra el archivo **`index.html`** en su navegador web.
+3. ¡Listo! Ahora podrá utilizar el sistema de monitoreo de residuos sólidos.
 
-**Tutorial**
-In order for you to easily be able to use the Paper Dashboard 2, we have created a tutorial page in our documentation. It shows the structure for the files inside the archive and how to import them. It then features every components with a description and example how to use it. You can see the details [here](https://demos.creative-tim.com/paper-dashboard/docs/1.0/getting-started/introduction.html).
+## **Créditos**
 
+Este sistema fue creado por Federico Aldama y Karen Delvalle como parte de un proyecto de desarrollo web utilizando tecnologías como Bootstrap, HTML, CSS, JavaScript y la API de Google Maps.
 
-### What's included
+## **Contacto**
 
-Within the download you'll find the following directories and files:
+Si tiene alguna pregunta, sugerencia o comentario sobre este sistema, no dude en ponerse en contacto conmigo a través de mi correo electrónico fedealdama@hotmail.com ¡Espero que le guste!
 
-```
-Paper Dashboard 2
-.
-├── CHANGELOG.md
-├── README.md
-├── assets
-│   ├── css/
-│   ├── demo/
-│   ├── fonts/
-│   ├── img/
-│   ├── js
-│   │   ├── core/
-│   │   ├── paper-dashboard.js
-│   │   ├── paper-dashboard.js.map
-│   │   ├── paper-dashboard.min.js
-│   │   └── plugins
-│   │       ├── bootstrap-notify.js
-│   │       ├── chartjs.min.js
-│   │       └── perfect-scrollbar.jquery.min.js
-│   └── scss/
-│       ├── paper-dashboard/
-│       │   ├── cards/
-│       │   ├── mixins/
-│       │   └── plugins/
-│       └── paper-dashboard.scss
-├── docs/
-│   └── documentation.html
-├── examples/
-│   ├── dashboard.html
-│   ├── icons.html
-│   ├── map.html
-│   ├── notifications.html
-│   ├── tables.html
-│   ├── typography.html
-│   ├── upgrade.html
-│   └── user.html
-├── gulpfile.js
-├── nucleo-icons.html
-└── package.json
-```
+![Captura de pantalla 2023-03-14 204016](https://user-images.githubusercontent.com/100539173/225168416-fa9eacf4-54ed-434d-8ae4-93bbe12a3982.jpg)
 
-## Getting started
-- Download the project’s zip
-- Make sure you have [node.js](https://nodejs.org/en/){:rel="nofollow"} installed
-- Type `npm install` in terminal/console in the source folder where `package.json` is located
-- You will find all the branding colors inside `assets/scss/core/variables/_brand.scss`. You can change them with a HEX value or with other predefined variables from `assets/scss/core/variables/_colors.scss`
-- Run in terminal `gulp compile-scss` for a single compilation or gulp watch for continous compilation of the changes that you make in `*.scss` files. This command should be run in the same folder where `gulpfile.js` and `package.json` are located
-- Run in terminal `gulp open-app` for opening the Presentation Page (default) of the product. You can set in `gulpfile.js` from your downloaded archive any page you want to open in browser, `at line 30: gulp.src('./examples/dashboard.html')`
-
-## Upgrade to PRO Version
-
-Are you looking for more components? Please check our Premium Version of Paper Dashboard right [here](https://www.creative-tim.com/product/paper-dashboard-2-pro).
-
-## Useful Links
-
-More products from Creative Tim: <http://www.creative-tim.com/bootstrap-themes>
-
-Tutorials: <https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w>
-
-Freebies: <http://www.creative-tim.com/products>
-
-Affiliate Program (earn money): <http://www.creative-tim.com/affiliates/new>
-
-Social Media:
-
-Twitter: <https://twitter.com/CreativeTim>
-
-Facebook: <https://www.facebook.com/CreativeTim>
-
-Dribbble: <https://dribbble.com/creativetim>
-
-Google+: <https://plus.google.com/+CreativetimPage>
-
-Instagram: <https://instagram.com/creativetimofficial>
-
-[CHANGELOG]: ./CHANGELOG.md
-[LICENSE]: ./LICENSE
-[version-badge]: https://img.shields.io/badge/version-2.0.1-blue.svg
-[license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
